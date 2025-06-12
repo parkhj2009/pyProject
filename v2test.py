@@ -4,13 +4,15 @@ import random as r
 def get():
     nums = entry1.get()
     rows = entry2.get()
+    ext = entry3.get()
     print(nums)
     print(rows)
     chose(nums, rows)
 
-def chose(nums, rows):
+def chose(nums, rows,ext):
     nums = int(nums)
     rows = int(rows)
+    ext = ext.split(',')
     l = [i for i in range(1,nums+1)]
     seats=[[] for _ in range(rows)]
     r.shuffle(l)
@@ -43,7 +45,7 @@ label2.grid(row=1, column=0, padx=10, pady=10)
 entry2 = Entry(tk, width=30, bg='white', fg='black', font=('Arial', 14))
 entry2.grid(row=1, column=1, padx=10, pady=10)
 
-label3 = Label(tk, text='열 수', bg='white', fg='black', font=('Arial', 14))
+label3 = Label(tk, text='제외할 번호(쉼표로 구분)', bg='white', fg='black', font=('Arial', 14))
 label3.grid(row=1, column=0, padx=10, pady=10)
 
 entry3 = Entry(tk, width=30, bg='white', fg='black', font=('Arial', 14))
